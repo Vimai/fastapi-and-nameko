@@ -1,0 +1,43 @@
+version: "3"
+services:
+  rabbit:
+    container_name: main-rabbitmq
+    image: rabbitmq:3.7-management
+    ports:
+        - "5672:5672"
+        - "15672:15672" # Exposing RabbitMQ web management on different port for convenience
+    restart: always
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    ports:
+        - "5432:5432"
+        - "5433:5432" # Exposing Postgres on different port for convenience
+    volumes:
+        - ./scripts/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+        POSTGRES_DB: "main"
+        POSTGRES_PASSWORD: "password"
+        POSTGRES_USER: "postgres"
+    restart: always
+
+  db-admin:
+    image: dpage/pgadmin4:4.14
+    restart: always
+    ports:
+      - 8081:80
+    depends_on:
+      - postgres
+    volumes:
+      - ./util:/data
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin
+      PGADMIN_DEFAULT_PASSWORD: password
+
+volumes:
+  dbdata:
+
+networks:
+  dev-network:
+    driver: bridge
