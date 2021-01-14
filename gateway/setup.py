@@ -2,7 +2,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='httpgateway',
+    name='gateway',
     version='0.0.1',
     description='Microservice for http',
     author='imai',
@@ -12,6 +12,7 @@ setup(
         "fastapi==0.63.0"
         "marshmallow==3.10.0",
         "nameko==v3.0.0-rc9",
+        "uvicorn==0.13.3",
     ],
     extras_require={
         'dev': [
