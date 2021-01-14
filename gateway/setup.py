@@ -9,16 +9,16 @@ setup(
     packages=find_packages(exclude=['test', 'test.*']),
     py_modules=['products'],
     install_requires=[
-        "fastapi==0.63.0"
+        "fastapi==0.63.0",
         "marshmallow==3.10.0",
         "nameko==v3.0.0-rc9",
         "uvicorn==0.13.3",
     ],
     extras_require={
         'dev': [
-            'pytest==4.5.0',
-            'coverage==4.5.3',
-            'flake8==3.7.7',
+            'pytest==6.2.1',
+            'coverage==5.3.1',
+            'flake8==3.8.4',
         ]
     },
     zip_safe=True,
