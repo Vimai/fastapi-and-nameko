@@ -1,17 +1,14 @@
 import logging
 
-from nameko.events import event_handler
 from nameko.rpc import rpc
-
 from products import schemas
-
 
 logger = logging.getLogger(__name__)
 
 
 class ProductsService:
 
-    name = 'products'
+    name = "products"
 
     storage = []
 

@@ -1,8 +1,6 @@
-from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from gateway.service import app
-
 
 client = TestClient(app)
 

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from nameko.standalone.rpc import ClusterRpcProxy
 
-CONFIG = {'AMQP_URI': "amqp://guest:guest@localhost:5672"}
+CONFIG = {"AMQP_URI": "amqp://guest:guest@localhost:5672"}
 
 app = FastAPI()
 

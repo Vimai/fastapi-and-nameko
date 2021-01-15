@@ -1,10 +1,8 @@
 import pytest
-
 from nameko import config
 from nameko.testing.utils import find_free_port
 
 from products.service import ProductsService
-
 
 pytest_plugins = [
     "test.e2e.fixtures.envs",
