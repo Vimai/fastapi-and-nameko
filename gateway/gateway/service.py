@@ -1,10 +1,24 @@
 from fastapi import FastAPI
+from gateway.api.routes.main import router as api_router
 from nameko.standalone.rpc import ClusterRpcProxy
-from pydantic import BaseModel
 
 CONFIG = {"AMQP_URI": "amqp://guest:guest@localhost:5672"}
 
-app = FastAPI()
+PROJECT_NAME = 'projeto'
+VERSION = '0.1.0'
+DEBUG = True
+API_PREFIX = ''
+
+
+def get_application() -> FastAPI:
+    application = FastAPI(title=PROJECT_NAME, debug=DEBUG, version=VERSION)
+
+    application.include_router(api_router, prefix=API_PREFIX)
+
+    return application
+
+
+app = get_application()
 
 
 @app.get("/")
@@ -20,11 +34,3 @@ async def nameko():
     return result
 
 
-class Products(BaseModel):
-    name: str
-    value: float
-
-
-@app.post("/products")
-async def create_product(product: Products):
-    return product
