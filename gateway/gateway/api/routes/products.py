@@ -1,12 +1,8 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+
+from gateway.schemas.products import Products
 
 router = APIRouter()
-
-
-class Products(BaseModel):
-    name: str
-    value: float
 
 
 @router.post("")
