@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from gateway.api.v1.router import router as api_router
+from gateway.api.router import router as api_router
 from nameko.standalone.rpc import ClusterRpcProxy
 
 CONFIG = {"AMQP_URI": "amqp://guest:guest@localhost:5672"}
