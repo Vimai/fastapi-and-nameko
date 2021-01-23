@@ -2,4 +2,4 @@
 
 # Run the service
 
-uvicorn gateway.service:app
+uvicorn gateway.service:app --reload
