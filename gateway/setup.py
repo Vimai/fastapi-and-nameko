@@ -7,7 +7,7 @@ setup(
     description="Microservice for http",
     author="imai",
     packages=find_packages(exclude=["test", "test.*"]),
-    py_modules=["products"],
+    py_modules=["gateway"],
     install_requires=[
         "fastapi==0.63.0",
         "marshmallow==3.10.0",
